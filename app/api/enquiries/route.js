@@ -21,7 +21,7 @@ function brandedEmail({ title, bodyHtml }) {
   <div style="font-family:Arial,sans-serif;background:#0E2529;padding:32px;">
     <div style="max-width:480px;margin:0 auto;background:#FBF8F0;border-radius:14px;overflow:hidden;">
       <div style="background:#0E2529;padding:20px 24px;">
-        <span style="color:#E3C687;font-size:18px;font-weight:700;">Mehmaan <i style="color:#C79A4B;">Easy</i></span>
+        <span style="color:#E3C687;font-size:18px;font-weight:700;">EV</span>
       </div>
       <div style="padding:24px;color:#0E2529;">
         <h2 style="margin:0 0 12px;">${title}</h2>
@@ -80,7 +80,7 @@ export async function POST(req) {
 
       // Email to Seller
       await transporter.sendMail({
-        from: `Mehmaan Easy <${GMAIL_EMAIL}>`,
+        from: `EV <${GMAIL_EMAIL}>`,
         to: sellerEmail,
         subject: `New enquiry: ${buyerName} is interested in your listing`,
         html: brandedEmail({
@@ -96,7 +96,7 @@ export async function POST(req) {
 
       // Confirmation to Buyer
       await transporter.sendMail({
-        from: `Mehmaan Easy <${GMAIL_EMAIL}>`,
+        from: `EV <${GMAIL_EMAIL}>`,
         to: buyerEmail,
         subject: "We've sent your enquiry to the seller",
         html: brandedEmail({

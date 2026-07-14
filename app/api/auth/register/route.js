@@ -11,16 +11,16 @@ function hashCode(code) {
 function brandedEmail({ title, bodyHtml }) {
   return `
   <div style="font-family:Arial,sans-serif;background:#0E2529;padding:32px;">
-    <div style="max-width:480px;margin:0 auto;background:#FBF8F0;border-radius:14px;overflow:hidden;">
-      <div style="background:#0E2529;padding:20px 24px;">
-        <span style="color:#E3C687;font-size:18px;font-weight:700;">Mehmaan <i style="color:#C79A4B;">Easy</i></span>
-      </div>
-      <div style="padding:24px;color:#0E2529;">
-        <h2 style="margin:0 0 12px;">${title}</h2>
-        ${bodyHtml}
-      </div>
-    </div>
-  </div>`;
+     <div style="max-width:480px;margin:0 auto;background:#FBF8F0;border-radius:14px;overflow:hidden;">
+       <div style="background:#0E2529;padding:20px 24px;">
+         <span style="color:#E3C687;font-size:18px;font-weight:700;">EV</span>
+       </div>
+       <div style="padding:24px;color:#0E2529;">
+         <h2 style="margin:0 0 12px;">${title}</h2>
+         ${bodyHtml}
+       </div>
+     </div>
+   </div>`;
 }
 
 export async function POST(req) {
@@ -60,9 +60,9 @@ export async function POST(req) {
       });
 
       await transporter.sendMail({
-        from: `Mehmaan Easy <${GMAIL_EMAIL}>`,
+        from: `EV <${GMAIL_EMAIL}>`,
         to: cleanEmail,
-        subject: "Your Mehmaan Easy verification code",
+        subject: "Your EV verification code",
         html: brandedEmail({
           title: "Verify your email",
           bodyHtml: `
