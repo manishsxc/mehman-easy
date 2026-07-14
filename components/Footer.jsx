@@ -15,7 +15,7 @@ export default function Footer() {
               EV
             </span>
           </div>
-          
+
           <nav className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-sm text-cream/60">
             <Link href="/" className="hover:text-gold transition-colors">
               Browse Properties
@@ -29,7 +29,7 @@ export default function Footer() {
           </nav>
 
           <p className="text-xs text-cream/40 text-center md:text-right">
-            &copy; {currentYear} EV Marketplace. All rights reserved.
+            &copy; {currentYear} Mehmaan Easy. All rights reserved.
           </p>
         </div>
       </div>

@@ -22,14 +22,15 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 w-full px-4 md:px-8 pt-4 pb-2 bg-transparent">
       {/* Floating Capsule Container */}
       <div className="max-w-7xl mx-auto h-16 rounded-full border border-white/10 bg-black/40 backdrop-blur-xl shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] px-6 flex items-center justify-between transition-all duration-300">
-        
+
         {/* Brand Logo & Full Styled Name */}
         <Link href="/" className="flex items-center gap-3 group">
           <img src="/logo.png" alt="EV Logo" className="w-8 h-8 object-contain rounded-md shadow-md" />
           <span className="font-display font-800 text-lg tracking-widest text-cream uppercase flex items-center gap-1">
-            EV<span className="text-xs font-500 tracking-normal text-gold-soft lowercase italic">marketplace</span>
+            Mehmaan<span className="text-xs font-500 tracking-normal text-gold-soft lowercase italic">Easy</span>
           </span>
         </Link>
+
 
         {/* Desktop Navigation Links with active tab pill background */}
         <nav className="hidden md:flex items-center gap-2">
@@ -66,7 +67,7 @@ export default function Navbar() {
                 href="/dashboard"
                 className="flex items-center gap-2 text-sm text-cream/90 hover:text-gold transition-colors duration-250"
               >
-                <User size={15} className="text-gold-soft" /> 
+                <User size={15} className="text-gold-soft" />
                 <span className="font-500">{profile.name?.split(" ")[0] || "Dashboard"}</span>
               </Link>
               <button
@@ -92,60 +93,57 @@ export default function Navbar() {
         </div>
 
         {/* Hamburger Menu Toggle Button */}
-        <button 
-          className={`md:hidden text-cream p-2 rounded-full transition-all duration-200 ${open ? 'bg-white/15 rotate-90' : 'hover:bg-white/5'}`} 
-          onClick={() => setOpen((v) => !v)} 
+        <button
+          className={`md:hidden text-cream p-2 rounded-full transition-all duration-200 ${open ? 'bg-white/15 rotate-90' : 'hover:bg-white/5'}`}
+          onClick={() => setOpen((v) => !v)}
           aria-label="Toggle menu"
         >
           {open ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
 
-      {/* Responsive Slide Menu Drawer */}
+      {/* Compact Dropdown Menu Overlay */}
       <AnimatePresence>
         {open && (
           <>
-            {/* Backdrop Blur Overlay */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.5 }}
-              exit={{ opacity: 0 }}
+            {/* Click-away backdrop overlay */}
+            <div
               onClick={() => setOpen(false)}
-              className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm md:hidden"
+              className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm md:hidden"
             />
-            
-            {/* Side sliding panel drawer */}
+
+            {/* Self-sizing dropdown container */}
             <motion.div
-              initial={{ x: "100%", opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              exit={{ x: "100%", opacity: 0 }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed right-4 top-24 bottom-6 w-64 z-50 bg-ink-panel/95 border border-white/10 p-6 flex flex-col gap-5 md:hidden rounded-3xl backdrop-blur-2xl shadow-[0_8px_32px_0_rgba(0,0,0,0.5)]"
+              initial={{ scale: 0.95, opacity: 0, y: -10 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: -10 }}
+              transition={{ duration: 0.15 }}
+              className="absolute right-4 top-20 w-48 z-50 bg-black/90 border border-white/10 p-4 flex flex-col gap-3.5 md:hidden rounded-2xl backdrop-blur-xl shadow-xl"
             >
               {links.map((l) => (
-                <Link key={l.href} href={l.href} className="text-sm font-500 text-cream/90 hover:text-gold transition-colors" onClick={() => setOpen(false)}>
+                <Link key={l.href} href={l.href} className="text-xs font-500 text-cream/90 hover:text-gold transition-colors" onClick={() => setOpen(false)}>
                   {l.label}
                 </Link>
               ))}
-              <div className="h-px bg-white/10 my-1" />
+              <div className="h-px bg-white/10" />
               {user && profile?.verified ? (
                 <>
-                  <Link href="/post" className="text-sm font-700 text-gold hover:text-gold-soft transition-colors" onClick={() => setOpen(false)}>
+                  <Link href="/post" className="text-xs font-700 text-gold hover:text-gold-soft transition-colors" onClick={() => setOpen(false)}>
                     + Add Property
                   </Link>
-                  <Link href="/dashboard" className="text-sm font-500 text-cream/90 hover:text-gold transition-colors" onClick={() => setOpen(false)}>
+                  <Link href="/dashboard" className="text-xs font-500 text-cream/90 hover:text-gold transition-colors" onClick={() => setOpen(false)}>
                     Dashboard
                   </Link>
-                  <button onClick={() => { signOut(); setOpen(false); }} className="text-left text-sm font-500 text-cream/50 hover:text-red-400 transition-colors">
+                  <button onClick={() => { signOut(); setOpen(false); }} className="text-left text-xs font-500 text-cream/50 hover:text-red-400 transition-colors">
                     Sign out
                   </button>
                 </>
               ) : (
                 <>
-                  <Link href="/login" className="text-sm font-500 text-cream/90 hover:text-gold transition-colors" onClick={() => setOpen(false)}>
+                  <Link href="/login" className="text-xs font-500 text-cream/90 hover:text-gold transition-colors" onClick={() => setOpen(false)}>
                     Log in
                   </Link>
-                  <Link href="/register" className="text-sm font-700 text-gold hover:text-gold-soft transition-colors" onClick={() => setOpen(false)}>
+                  <Link href="/register" className="text-xs font-700 text-gold hover:text-gold-soft transition-colors" onClick={() => setOpen(false)}>
                     Get Started
                   </Link>
                 </>
@@ -154,8 +152,7 @@ export default function Navbar() {
           </>
         )}
       </AnimatePresence>
+
     </header>
   );
 }
-
-

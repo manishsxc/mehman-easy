@@ -3,7 +3,10 @@ import dbConnect from "@/lib/mongodb";
 import { User } from "@/lib/models";
 import { adminAuth } from "@/lib/firebaseAdmin";
 
+export const dynamic = "force-dynamic";
+
 export async function GET(req) {
+
   try {
     await dbConnect();
     const authHeader = req.headers.get("authorization");
