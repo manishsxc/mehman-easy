@@ -1,0 +1,52 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // users: a user can read/update only their own profile.
+    // 'verified' can only ever be flipped by the Admin SDK (Cloud Functions),
+    // never by the client, so OTP verification can't be bypassed.
+    match /users/{uid} {
+      allow read: if request.auth != null && request.auth.uid == uid;
+      allow create: if request.auth != null && request.auth.uid == uid
+                    && request.resource.data.verified == false;
+      allow update: if request.auth != null && request.auth.uid == uid
+                    && request.resource.data.verified == resource.data.verified;
+      allow delete: if false;
+    }
+
+    // properties: anyone can browse active listings; only the verified
+    // owner can create/edit/delete their own.
+    match /properties/{propertyId} {
+      allow read: if true;
+      allow create: if request.auth != null
+                    && request.resource.data.ownerUid == request.auth.uid;
+      allow update, delete: if request.auth != null
+                    && resource.data.ownerUid == request.auth.uid;
+    }
+
+    // enquiries: any visitor (incl. anonymous) can submit an enquiry;
+    // only the seller who owns it can read their inbox. No client updates —
+    // enquiries are immutable records, and emailing is handled server-side.
+    match /enquiries/{enquiryId} {
+      allow create: if request.resource.data.buyerEmail is string
+                    && request.resource.data.sellerEmail is string
+                    && request.resource.data.propertyId is string;
+      allow read: if request.auth != null
+                    && resource.data.sellerEmail == request.auth.token.email;
+      allow update, delete: if false;
+    }
+
+    // ads: read-only for clients; managed via the Admin SDK / dashboard.
+    match /ads/{adId} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    // otps: never accessible from the client — only Cloud Functions
+    // (Admin SDK) can read/write these.
+    match /otps/{email} {
+      allow read, write: if false;
+    }
+  }
+}
