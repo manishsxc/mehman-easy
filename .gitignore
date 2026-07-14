@@ -5,3 +5,4 @@ out/
 serviceAccountKey.json
 firebase-debug.log
 .DS_Store
+sa.json
