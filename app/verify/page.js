@@ -10,7 +10,8 @@ import { functions } from "@/lib/firebase";
 
 export default function VerifyPage() {
   const router = useRouter();
-  const { refreshProfile } = useAuth();
+  const { login, refreshProfile } = useAuth();
+
   const [email, setEmail] = useState("");
   const [code, setCode] = useState("");
   const [error, setError] = useState("");
