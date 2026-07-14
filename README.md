@@ -41,7 +41,7 @@ npm run dev
 ```bash
 npm run build
 git add .
-git commit -m "json file fix and .gitignore update"
+git commit -m "logo changes"
 git push -u origin main
 ```
 ## How the pieces fit together
