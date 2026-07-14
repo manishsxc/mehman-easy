@@ -37,7 +37,13 @@ npm run seed
 ```bash
 npm run dev
 ```
-
+## 7. Repush and run build
+```bash
+npm run build
+git add .
+git commit -m "json file fix and .gitignore update"
+git push -u origin main
+```
 ## How the pieces fit together
 - **OTP verification**: `sendOtp`/`verifyOtp` Cloud Functions (custom 6-digit code, since Firebase Auth has no native email-OTP primitive) — see `functions/index.js`.
 - **Location sorting + ad injection**: `hooks/useNearbyProperties.js` sorts by Haversine distance from the browser's geolocation and interleaves `isFeatured` listings as ad banners every 4–6 cards.
