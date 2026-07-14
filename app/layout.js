@@ -8,10 +8,11 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter", weight: ["40
 const script = Dancing_Script({ subsets: ["latin"], variable: "--font-script", weight: ["600", "700"] });
 
 export const metadata = {
-  title: "Mehmaan Easy — Find your next address",
+  title: "EV — Find your next address",
   description:
-    "Buy, sell, and discover properties near you. Mehmaan Easy connects sellers and buyers directly, wherever the journey takes you.",
+    "Buy, sell, and discover properties near you. EV connects sellers and buyers directly, wherever the journey takes you.",
 };
+
 
 export default function RootLayout({ children }) {
   return (

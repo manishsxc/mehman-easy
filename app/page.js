@@ -47,8 +47,9 @@ export default function HomePage() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-cream/60 max-w-lg mt-5 text-base"
           >
-            Mehmaan Easy connects buyers and sellers directly — no middlemen, no waiting.
+            EV connects buyers and sellers directly — no middlemen, no waiting.
             Every listing is a ticket to somewhere new.
+
           </motion.p>
 
           <motion.div
