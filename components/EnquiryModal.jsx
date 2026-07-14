@@ -53,7 +53,8 @@ export default function EnquiryModal({ property, onClose }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 z-[200] bg-ink/80 backdrop-blur-sm flex items-end md:items-center justify-center p-0 md:p-6"
+        className="fixed inset-0 z-[200] bg-black/60 backdrop-blur-md flex items-end md:items-center justify-center p-0 md:p-6"
+
         onClick={onClose}
       >
         <motion.div

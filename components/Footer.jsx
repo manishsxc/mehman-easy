@@ -12,7 +12,7 @@ export default function Footer() {
           <div className="flex items-center gap-3">
             <img src="/logo.png" alt="EV Logo" className="w-8 h-8 object-contain rounded-md" />
             <span className="font-display font-800 text-lg tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-cream via-gold-soft to-gold">
-              EV
+              Mehmaan Easy
             </span>
           </div>
 
