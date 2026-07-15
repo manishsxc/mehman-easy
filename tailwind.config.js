@@ -33,9 +33,9 @@ module.exports = {
         800: "800",
       },
       fontFamily: {
-        display: ["var(--font-sora)", "sans-serif"],
+        display: ["var(--font-serif)", "serif"],
         body: ["var(--font-inter)", "sans-serif"],
-        script: ["var(--font-script)", "cursive"],
+        sans: ["var(--font-sora)", "sans-serif"],
       },
       borderRadius: {
         stub: "2px",
