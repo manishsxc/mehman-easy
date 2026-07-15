@@ -41,7 +41,7 @@ npm run dev
 ```bash
 npm run build
 git add .
-git commit -m "logo changes"
+git commit -m "3d ui design"
 git push -u origin main
 ```
 ## How the pieces fit together

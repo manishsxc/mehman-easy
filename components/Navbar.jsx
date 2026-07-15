@@ -14,14 +14,16 @@ export default function Navbar() {
   const pathname = usePathname();
 
   const links = [
-    { href: "/", label: "Browse" },
+    { href: "/", label: "Home" },
+    { href: "/properties", label: "Visit Properties" },
     { href: "/about", label: "About Us" },
-    { href: "/post", label: "Sell a property" },
   ];
 
 
+
   return (
-    <header className="sticky top-0 z-50 w-full px-4 md:px-8 pt-4 pb-2 bg-transparent">
+    <header className="fixed top-0 left-0 right-0 z-50 w-full px-4 md:px-8 pt-4 pb-2 bg-transparent">
+
       {/* Floating Capsule Container */}
       <div className="max-w-7xl mx-auto h-16 rounded-full border border-white/10 bg-black/40 backdrop-blur-xl shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] px-6 flex items-center justify-between transition-all duration-300">
 
@@ -29,9 +31,10 @@ export default function Navbar() {
         <Link href="/" className="flex items-center gap-3 group">
           <img src="/logo.png" alt="EV Logo" className="w-8 h-8 object-contain rounded-md shadow-md" />
           <span className="font-display font-800 text-lg tracking-widest text-cream uppercase flex items-center gap-1">
-            Mehmaan<span className="text-xs font-500 tracking-normal text-gold-soft lowercase italic">Easy</span>
+            Mehmaan<span className="text-xs font-500 tracking-normal text-gold lowercase italic font-sans">easy</span>
           </span>
         </Link>
+
 
 
         {/* Desktop Navigation Links with active tab pill background */}
