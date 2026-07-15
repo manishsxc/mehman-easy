@@ -9,20 +9,20 @@ module.exports = {
     extend: {
       colors: {
         ink: {
-          DEFAULT: "#0E2529", // deep dark teal/charcoal — primary background
-          soft: "#153338",
-          panel: "#1B3E44",
-          line: "#2A4F55",
+          DEFAULT: "#0F0F0F", // premium dark charcoal
+          soft: "#1A1A1A",
+          panel: "#1E1E1E",
+          line: "#2B2B2B",
         },
         cream: {
-          DEFAULT: "#F6F1E4", // off-white / cream for cards & text accents
-          dim: "#EAE2CC",
-          card: "#FBF8F0",
+          DEFAULT: "#FAF9F6", // luxury warm alabaster
+          dim: "#F4F1EA",
+          card: "#FFFFFF",
         },
         gold: {
-          DEFAULT: "#C79A4B", // warm gold highlight
-          soft: "#E3C687",
-          deep: "#9C7A34",
+          DEFAULT: "#D4AF37", // exquisite leaf gold
+          soft: "#F3E5AB",
+          deep: "#AA7C11",
         },
       },
       fontWeight: {
@@ -41,8 +41,8 @@ module.exports = {
         stub: "2px",
       },
       boxShadow: {
-        card: "0 8px 30px -12px rgba(14,37,41,0.35)",
-        ticket: "0 12px 40px -14px rgba(14,37,41,0.55)",
+        card: "0 10px 40px -10px rgba(0,0,0,0.4)",
+        ticket: "0 16px 48px -12px rgba(0,0,0,0.6)",
       },
       backgroundImage: {
         "grain": "radial-gradient(circle at 1px 1px, rgba(246,241,228,0.06) 1px, transparent 0)",
